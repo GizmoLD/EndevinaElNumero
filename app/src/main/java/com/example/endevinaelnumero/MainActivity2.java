@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MainActivity2 extends AppCompatActivity {
     static ArrayList<Record> records = new ArrayList<Record>();
@@ -69,6 +70,9 @@ public class MainActivity2 extends AppCompatActivity {
 
     private void displayRecords() {
         StringBuilder texto = new StringBuilder();
+        Collections.sort(records,(r1,r2) -> Integer.compare(r2.getPuntuacio(), r1.getPuntuacio()));
+        Collections.reverse(records);
+
         for (Record r : records) {
             texto.append(r.getNom()).append("     ").append(r.getPuntuacio()).append("\n");
         }
@@ -83,6 +87,7 @@ public class MainActivity2 extends AppCompatActivity {
             // Agregar nuevo registro
             Record record = new Record(nom, puntuacion);
             records.add(record);
+
             // Mostrar registros actualizados
             displayRecords();
         }

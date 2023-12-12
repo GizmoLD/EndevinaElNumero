@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         mostrarDialogoNombre();
-                        reiniciarJuego();
+                        //reiniciarJuego();
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -161,8 +161,9 @@ public class MainActivity extends AppCompatActivity {
 
         //intent.setAction("com.example.ranking.RECEIVE_DATA"); // Cambia a la acción correcta
         intent.putExtra("NOMBRE", nombre);
-        intent.putExtra("PUNTUACION", record+1);
+        intent.putExtra("PUNTUACION", record);
         //intent.setPackage("com.example.ranking"); // Paquete de la aplicación de destino
+        reiniciarJuego();
         startActivity(intent);
     }
 
